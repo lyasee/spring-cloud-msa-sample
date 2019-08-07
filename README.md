@@ -1,6 +1,6 @@
 # spring-cloud-msa-sample
 
-##Project
+## Project 
 |project|port|role|
 |---|---|---|
 |eureka|8000|eureka server|
@@ -9,7 +9,7 @@
 |movie2|8711|eureka client, load balancing project 2
 |ticketing|8702|eureka client, calling movie api via feign|
   
-##Url
+## Url 
 |service|url|
 |---|---|
 |eureka server|http://localhost:8000/|
