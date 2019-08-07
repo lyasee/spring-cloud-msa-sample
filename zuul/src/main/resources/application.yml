@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: zuul-service
+
+server:
+  port: 8500
+
+zuul:
+  ignored-services: '*' # routes 에 정의되지 않은 모든 요청 무시
+  sensitive-headers: # header 의 모든 정보를 bypass
+  routes:
+    movie:
+      path: /api/v1/movie/** # 사용자가 입력할 URL
+      serviceId: movie-service # routing 을 처리할 endpoint service
+      strip-prefix: true # path 에서 /** 앞의 경로는 제거 후 뒷단 서비스로 요청 함
+    order:
+      path: /api/v1/ticketing/**
+      serviceId: ticketing-service
+      strip-prefix: true
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8000/eureka/
+
+ribbon:
+  ConnectTimeout: 5000 # Client 에서 서버로 요청시 서봐의 Connection 맺기 까지의 delay
+  ReadTimeout: 2000 # Connection 맺은 후 response 받기 까지 delay

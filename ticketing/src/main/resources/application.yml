@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: ticketing-service
+  zipkin:
+    base-url: http://localhost:9411/
+  sleuth:
+    sampler:
+      probability: 1.0
+server:
+  port: 8702
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8000/eureka/
+  instance:
+    prefer-ip-address: true
+ribbon:
+  ConnectTimeout: 5000
+  ReadTimeout: 2000
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'hystrix.stream'

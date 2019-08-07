@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: movie-service
+server:
+  port: 8711
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8000/eureka/
+  instance:
+    prefer-ip-address: true # hostname 을 ip로 설정하여 인스턴스 정보를 서버에 등록
